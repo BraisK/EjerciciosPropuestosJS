@@ -22,6 +22,13 @@ try {
     console.log(nombre)
 
 } catch (e) {
+    console.log('Fallo!')
 
 }
 
+String.prototype.firstLetter = function () {
+    if (this.length === 0) throw new Error('No es un String')
+    return this.charAt(0)
+}
+
+console.log('Angel'.firstLetter())

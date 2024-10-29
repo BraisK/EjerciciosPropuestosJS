@@ -13,13 +13,20 @@ const jugador2 = {
 const jugador3 = {
 
 }
-function showPoints(jugador) {
-    if (jugador?.ptos) return console.log(jugador.ptos)
-    return console.error('error')
-
+const jugador4 = {
+    nombre: '    ',
+    ptos: 5
 
 }
+function showPoints(jugador) {
+    // || evalua si lo de la izq es falsy
+    // ?? evalua si lo de la izq es null o undefined
+    if (typeof jugador?.nombre !== 'string' || jugador?.nombre.trim().length <= 0) return 'error'
+    if (typeof jugador?.ptos !== 'number') return 'error'
+    return jugador?.ptos ?? 'error'
+}
 
-showPoints(jugador)
-showPoints(jugador2)
-showPoints(jugador3)
+console.log(showPoints(jugador))
+console.log(showPoints(jugador2))
+console.log(showPoints(jugador3))
+console.log(showPoints(jugador4))
